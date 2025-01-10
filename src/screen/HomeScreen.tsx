@@ -55,9 +55,8 @@ const HomeScreen: React.FC = () => {
             <Image
               style={styles.illustration}
             />
-            <Text style={styles.emptyText}>
-              ไม่มีงานในหมวดหมู่นี้{"\n"}คลิก + เพื่อสร้างงานของคุณ
-            </Text>
+           
+            
           </View>
         ) : (
           <FlatList
@@ -66,7 +65,10 @@ const HomeScreen: React.FC = () => {
             renderItem={({ item }) => (
               <View>
                 <Text>{item.title}</Text>
+                <Text>{item.title}</Text>
+                <Text>{item.title}</Text>
               </View>
+              
             )}
           />
         )}
