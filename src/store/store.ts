@@ -1,0 +1,28 @@
+// import { configureStore } from '@reduxjs/toolkit';
+// import { apiSlice } from './apiSlice';
+
+// export const store = configureStore({
+//   reducer: {
+//     [apiSlice.reducerPath]: apiSlice.reducer, // เพิ่ม reducer ของ API
+//   },
+//   middleware: (getDefaultMiddleware) =>
+//     getDefaultMiddleware().concat(apiSlice.middleware), // เพิ่ม middleware
+// });
+
+// // Export RootState และ AppDispatch
+// export type RootState = ReturnType<typeof store.getState>;
+// export type AppDispatch = typeof store.dispatch;
+
+import { configureStore } from '@reduxjs/toolkit';
+import { apiSlice } from './apiSlice';
+
+export const store = configureStore({
+  reducer: {
+    [apiSlice.reducerPath]: apiSlice.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

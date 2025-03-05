@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Placehold.jp｜simple image placeholder service</title>
+        <meta name="description" content="Simple image placeholder service. You can create dummy images quickly and easily.">
+        <meta name="author" content="softel.co.jp">
+        <meta property="og:url" content="https://placehold.jp/">
+        <meta property="og:title" content="Placehold.jp | simple image placeholder service">
+        <meta property="og:description" content="Simple image placeholder service. You can create dummy images quickly and easily.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://placehold.jp/eeeeee/666666/200x200.png?text=placehold.jp">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Placehold.jp | simple image placeholder service">
+        <meta name="twitter:description" content="Simple image placeholder service. You can create dummy images quickly and easily.">
+        <meta name="twitter:image:src" content="https://placehold.jp/eeeeee/666666/200x200.png?text=placehold.jp">
+        <meta name="twitter:site" content="@placeholdjp">
+        <meta name="twitter:creator" content="@placeholdjp">
+        <link rel="apple-touch-icon" href="https://placehold.jp/120/333333/ffffff/180x180.png?text=P" sizes="180x180">
+        <link rel="icon" href="https://placehold.jp/24/333333/ffffff/32x32.png?text=P" sizes="32x32" type="image/png">
+        <link rel="icon" href="https://placehold.jp/12/333333/ffffff/16x16.png?text=P" sizes="16x16" type="image/png">
+        <link rel="icon" href="https://placehold.jp/12/333333/ffffff/16x16.png?text=P">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container py-3 py-md-5">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img src="https://placehold.jp/24/333333/ffffff/32x32.png?text=P" alt="p">
+                    <span class="fs-4 mx-2">placehold.jp</span>
+                </a>
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="#usage" class="nav-link">Usage</a></li>
+                    <li class="nav-item"><a href="#basic" class="nav-link">Basic</a></li>
+                    <li class="nav-item"><a href="#advanced" class="nav-link">Advanced</a></li>
+                    <li class="nav-item"><a href="#url" class="nav-link">URL</a></li>
+                    <li class="nav-item"><a href="#example" class="nav-link">Example</a></li>
+                </ul>
+            </header>
+            <div class="d-flex align-items-center justify-content-end gap-3">
+                <span>[<a href="./">Japanese</a>]</span>
+                <div><a href="https://twitter.com/share" class="twitter-share-button" data-via="placeholdjp" data-url="https://placehold.jp/">Tweet</a></div>
+                <div>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="placehold" data-color="#FFDD00" data-emoji=""  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+</div>
+            </div>
+            <main>
+                <h1 id="basic">Basic</h1>
+                <div id="app1">
+                    <form method="post" action="./" class="ph-form mb-3" @submit.prevent="exec">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label>Width</label>
+                                        <input type="text" maxlength="4" placeholder="150" class="form-control" v-model="w">
+                                    </div>
+                                    <div class="col">
+                                        <label>Height</label>
+                                        <input type="text" maxlength="4" placeholder="150" class="form-control" v-model="h">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Create a image</button>
+                                </div>
+                                <div class="mb-3 d-none d-md-block">
+                                    <label>Commonly used</label>
+                                    <select class="form-control" v-model="p1" @change="preset">
+                                        <option></option>
+                                        <option>50 x 50</option>
+                                        <option>60 x 60</option>
+                                        <option>80 x 80</option>
+                                        <option>100 x 100</option>
+                                        <option>120 x 120</option>
+                                        <option>150 x 150</option>
+                                        <option>180 x 180</option>
+                                        <option>200 x 200</option>
+                                        <option>240 x 240</option>
+                                        <option>300 x 300</option>
+                                        <option>400 x 400</option>
+                                    </select>
+                                    <label>Commonly @banners</label>
+                                    <select class="form-control" v-model="p1" @change="preset">
+                                        <option></option>
+                                        <option>728 x 90</option>
+                                        <option>468 x 60</option>
+                                        <option>350 x 80</option>
+                                        <option>350 x 160</option>
+                                        <option>350 x 240</option>
+                                        <option>336 x 280</option>
+                                        <option>320 x 50</option>
+                                        <option>300 x 250</option>
+                                        <option>250 x 250</option>
+                                        <option>234 x 60</option>
+                                        <option>224 x 33</option>
+                                        <option>160 x 600</option>
+                                        <option>125 x 125</option>
+                                        <option>120 x 60</option>
+                                        <option>120 x 90</option>
+                                        <option>120 x 600</option>
+                                        <option>100 x 60</option>
+                                        <option>100 x 100</option>
+                                        <option>88 x 31</option>
+                                        <option>80 x 60</option>
+                                    </select>
+                                    <label>Commonly @web creation</label>
+                                    <select class="form-control" v-model="p1" @change="preset">
+                                        <option></option>
+                                        <option>16 x 16 | favicon</option>
+                                        <option>57 x 57 | apple-touch-icon</option>
+                                        <option>72 x 72 | apple-touch-icon</option>
+                                        <option>114 x 114 | apple-touch-icon</option>
+                                        <option>320 x 240 | QVGA</option>
+                                        <option>640 x 480 | VGA</option>
+                                        <option>800 x 600 | SVGA</option>
+                                        <option>850 x 315 | facebook</option>
+                                        <option>180 x 180 | facebook</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>URL</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" readonly :value="url">
+                                    <button class="btn btn-outline-secondary" type="button" @click="copy">Copy</button>
+                                </div>
+                                <p><img :src="url"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+<div class="mb-5">
+<!-- placehold.jp-jp-index -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-0853793429104208"
+     data-ad-slot="9486398047"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+                <h1 id="advanced">Advanced</h1>
+                <div id="app2">
+                    <form method="post" action="./" class="ph-form mb-5" @submit.prevent="exec">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label>Width</label>
+                                        <input type="text" maxlength="4" class="form-control" v-model="w">
+                                    </div>
+                                    <div class="col">
+                                        <label>Height</label>
+                                        <input type="text" maxlength="4" class="form-control" v-model="h">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label>Format</label>
+                                        <select v-model="format" class="form-control">
+                                            <option>png</option>
+                                            <option>jpg</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <label>Font size</label>
+                                        <input type="text" v-model="fontsize" maxlength="6" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Text color</label>
+                                        <div class="input-group mb-3">
+                                            <input type="color" v-model="color" maxlength="7" class="form-control form-control-color">
+                                            <input type="text" v-model="color"  maxlength="7" placeholder="#ffffff" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Background color</label>
+                                        <div class="input-group mb-3">
+                                            <input type="color" v-model="bgcolor"  maxlength="7" class="form-control form-control-color">
+                                            <input type="text" v-model="bgcolor"  maxlength="7" placeholder="#3d4070" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label>Text</label>
+                                    <textarea v-model="string" class="form-control"></textarea>
+                                </div>
+                                <p><button type="submit" class="btn btn-primary">Create a image</button></p>
+                                <div class="mb-3">
+                                    <label>CSS （<input type="checkbox" v-model="usecss"> Enable）</label>
+                                    <textarea class="form-control" v-model="css"></textarea>
+                                    <p class="help-block"><small>some properties needs、bender prefix (-webkit-).</small></p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label>URL</label>
+                                <div class="input-group mb-3">
+                                    <input type="text"  class="form-control" readonly :value="url">
+                                    <button class="btn btn-outline-secondary" type="button" @click="copy">Copy</button>
+                                </div>
+                                <p><img :src="url"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <h1 id="url">URL</h1>
+                <div id="app3">
+                    <form method="post" action="./" class="ph-form mb-5" @submit.prevent="exec">
+                        <p><textarea v-model="u" rows="2" class="form-control"></textarea></p>
+                        <p><button type="submit" class="btn btn-primary">Create a image</button></p>
+                        <p v-if="url"><img :src="url"></p>
+                    </form>
+                </div>
+
+<div class="mb-5">
+<!-- placehold.jp-jp-index -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-0853793429104208"
+     data-ad-slot="9486398047"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+            <h1 id="example">Example</h1>
+            <ul class="mb-5 icon-list">
+                <li><a href="./examples/1/" target="_blank">example 1 - mock-up</a></li>
+                <li><a href="./examples/2/" target="_blank">example 2 - mock-up</a></li>
+                <li><a href="./examples/3/" target="_blank">example 3 - favicon</a></li>
+                <li><a href="./examples/4/" target="_blank">example 4 - OGP</a></li>
+                <li><a href="./examples/5/" target="_blank">example 5 - No Image</a></li>
+            </ul>
+
+            <h1 id="usage">Usage</h1>
+            <div class="mb-5 usage">
+                <h2>Basic</h2>
+                <p>Specify the width and height.</p>
+                <p><code>https://placehold.jp/{width}x{height}.png</code></p>
+                <pre>e.g.: <code>&lt;img src="https://placehold.jp/150x50.png"&gt;</code></pre>
+                <p><img src="https://placehold.jp/150x50.png"></p>
+
+                <h3>Background color, font color, font size</h3>
+                <p>
+                    <code>https://placehold.jp/{font color}/150x100.png</code><br />
+                    <code>https://placehold.jp/{background color}/{font color}/150x100.png</code><br />
+                    <code>https://placehold.jp/{font size}/{background color}/{font color}/150x100.png</code>
+                </p>
+                <pre>e.g.: <code>&lt;img src="https://placehold.jp/24/cc9999/993333/150x100.png"&gt;</code></pre>
+                <p><img src="https://placehold.jp/24/cc9999/993333/150x100.png"></p>
+
+                <h3>Format</h3>
+                <p>Available image formats are JPG and PNG.</p>
+                <pre>e.g.:
+<code>&lt;img src="https://placehold.jp/006699/cccc00/150x100.png"&gt;
+&lt;img src="https://placehold.jp/006699/cccc00/150x100.jpg"&gt;</code></pre>
+                <p><img src="https://placehold.jp/006699/cccc00/150x100.png"> <img src="https://placehold.jp/006699/cccc00/150x100.jpg"></p>
+
+                <h3>Text</h3>
+                <p>You can put a string to the image. Use a "text" parameter.</p>
+                <p><code>https://placehold.jp/250x50.png?text={text}</code></p>
+                <pre>e.g.: <code>&lt;img src="https://placehold.jp/24/cccccc/ffffff/250x50.png?text=placehold.jp"&gt;</code></pre>
+                <p><img src="https://placehold.jp/24/cccccc/ffffff/250x50.png?text=placehold.jp"></p>
+
+                <h3>Advanced usage(CSS)</h3>
+                <p>CSS is available. Advance tab -&gt; CSS -&gt; click enabled.</p>
+                <p><code>https://placehold.jp/250x50.png?&css={JSON formated CSS}</code></p>
+                <pre>e.g.: <code>&lt;img src="https://placehold.jp/3d4070/ffffff/150x150.png?css=%7B%22border-radius%22%3A%2215px%22%7D"&gt;</code></pre>
+                <p><img src="https://placehold.jp/3d4070/ffffff/150x150.png?css=%7B%22border-radius%22%3A%2215px%22%7D"></p>
+            </div>
+
+<!-- placehold.jp-jp-index -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-0853793429104208"
+     data-ad-slot="9486398047"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+            <hr class="col-3 col-md-2 mb-5">
+
+            <div>
+                <ul class="icon-list">
+                    <li><a href="./">Home</a> (<a href="./">ja</a> | <a href="en.html">en</a>)</li>
+                    <li><a href="rule.html">Terms of service</a></li>
+                </ul>
+                <p>Send bug reports or requests or messages.</p>
+                <a href="https://twitter.com/intent/tweet?screen_name=placeholdjp&text=http%3A%2F%2Fplacehold.jp%2F%20%23issues" class="twitter-mention-button" data-related="placeholdjp">Tweet to @placeholdjp</a></p>
+                <div>
+                    <div>
+                        <a href="https://px.a8.net/svt/ejp?a8mat=1TX73O+ES9RB6+D8Y+C6QR5" target="_blank"><img border="0" width="350" height="80" alt="" src="https://www21.a8.net/svt/bgt?aid=110723892894&wid=011&eno=01&mid=s00000001717002047000&mc=1"></a>
+                        <img border="0" width="1" height="1" src="https://www13.a8.net/0.gif?a8mat=1TX73O+ES9RB6+D8Y+C6QR5" alt="">
+                    </div>
+                    <div>
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="placehold" data-color="#FFDD00" data-emoji=""  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+                    </div>
+                    <div>
+                        This service is running on <a href="https://px.a8.net/svt/ejp?a8mat=1TX73O+ES9RB6+D8Y+C6QR5">sakura VPS</a>
+                    </div>
+                </div>
+            </div>
+            </main>
+            <footer class="pt-5 my-5 text-muted border-top">
+                Powered by <a href="https://www.softel.co.jp/">SOFTEL</a>
+            </footer>
+        </div>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0853793429104208" crossorigin="anonymous"></script>
+        <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></scrip --t>
+        <!-- script src="https://cdn.jsdelivr.net/npm/vue@next/dist/vue.global.prod.js"></script -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="script.js" id="js-appjs"></script>
+    </body>
+</html>
