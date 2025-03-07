@@ -11,15 +11,14 @@ export interface CartItem {
   quantity: number;
 }
 
-// 🛒 **สร้าง Context (ต้อง `export` เพื่อให้ใช้งานได้)**
 export const CartContext = createContext<CartContextProps | undefined>(undefined);
 
-// 🛒 **โครงสร้างของ Context**
 interface CartContextProps {
   cart: CartItem[];
   addToCart: (product: CartItem) => void;
   increaseQuantity: (id: string) => void;
   decreaseQuantity: (id: string) => void;
+  removeItems: (ids: string[]) => void; // ✅ เปลี่ยนให้รับ id[]
 }
 
 // 🛒 **Reducer สำหรับจัดการตะกร้าสินค้า**
@@ -48,6 +47,9 @@ const cartReducer = (state: CartItem[], action: any) => {
           : item
       );
 
+    case "REMOVE_ITEMS":
+      return state.filter((item) => !action.payload.includes(item.id)); // ✅ ลบสินค้าตาม id
+
     default:
       return state;
   }
@@ -64,6 +66,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         addToCart: (product) => dispatch({ type: "ADD_TO_CART", payload: product }),
         increaseQuantity: (id) => dispatch({ type: "INCREASE_QUANTITY", payload: id }),
         decreaseQuantity: (id) => dispatch({ type: "DECREASE_QUANTITY", payload: id }),
+        removeItems: (ids) => dispatch({ type: "REMOVE_ITEMS", payload: ids }), // ✅ รับ id[] และลบออกจาก state
       }}
     >
       {children}
